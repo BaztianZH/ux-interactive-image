@@ -11,6 +11,8 @@
 
 namespace BaztianZh\UX\InteractiveImage\DependencyInjection;
 
+use BaztianZh\UX\InteractiveImage\Builder\InteractiveImageBuilder;
+use BaztianZh\UX\InteractiveImage\Builder\InteractiveImageBuilderInterface;
 use BaztianZh\UX\InteractiveImage\Twig\InteractiveImageTwigExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -26,6 +28,16 @@ class InteractiveImageExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
+        $container
+            ->setDefinition('interactive_image.builder', new Definition(InteractiveImageBuilder::class))
+            ->setPublic(false)
+        ;
+
+        $container
+            ->setAlias(InteractiveImageBuilderInterface::class, 'interactive_image.builder')
+            ->setPublic(false)
+        ;
+
         if (class_exists(Environment::class) && class_exists(StimulusTwigExtension::class)) {
             $container
                 ->setDefinition('interactive_image.twig_extension', new Definition(InteractiveImageTwigExtension::class))
