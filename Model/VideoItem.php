@@ -9,9 +9,9 @@ class VideoItem extends MediaItem
 
     private ?string $poster;
 
-    public function __construct(string $path)
+    public function __construct(int $left, int $top, string $path)
     {
-        $this->type = self::TYPE_VIDEO;
+        parent::__construct(Item::TYPE_VIDEO, $left, $top);
         $this->path = $path;
     }
 

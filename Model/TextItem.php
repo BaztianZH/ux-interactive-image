@@ -11,9 +11,9 @@ class TextItem extends Item implements \JsonSerializable
     private ?string $picturePath = null;
     private ?Link $link = null;
 
-    public function __construct(string $title, string $description)
+    public function __construct(int $left, int $top, string $title, string $description)
     {
-        $this->type = self::TYPE_TEXT;
+        parent::__construct(Item::TYPE_TEXT, $left, $top);
         $this->title = $title;
         $this->description = $description;
     }
@@ -83,7 +83,7 @@ class TextItem extends Item implements \JsonSerializable
         ];
 
         if ($this->link instanceof Link && null !== $this->link->getUrl()) {
-            $data += ['link' => $this->link];
+            $data['link'] = $this->link;
         }
 
         return $data;

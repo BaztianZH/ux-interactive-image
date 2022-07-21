@@ -4,9 +4,9 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class PictureItem extends MediaItem implements \JsonSerializable
 {
-    public function __construct(string $path)
+    public function __construct(int $left, int $top, string $path)
     {
-        $this->type = self::TYPE_PICTURE;
+        parent::__construct(Item::TYPE_PICTURE, $left, $top);
         $this->path = $path;
     }
 

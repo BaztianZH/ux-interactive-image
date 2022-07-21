@@ -14,6 +14,12 @@ abstract class Item
     protected Position $position;
     protected string $customClassName = '';
 
+    public function __construct(string $type, int $left, int $top)
+    {
+        $this->type = $type;
+        $this->position = new Position($left, $top);
+    }
+
     /**
      * @return string
      */

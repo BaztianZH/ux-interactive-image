@@ -9,9 +9,9 @@ class ProviderItem extends Item
     private ProviderName $provider;
     private Parameters $parameters;
 
-    public function __construct(ProviderName $provider, Parameters $parameters)
+    public function __construct(int $left, int $top, ProviderName $provider, Parameters $parameters)
     {
-        $this->type = self::TYPE_PROVIDER;
+        parent::__construct(Item::TYPE_PROVIDER, $left, $top);
         $this->provider = $provider;
         $this->parameters = $parameters;
     }
