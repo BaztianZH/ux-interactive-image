@@ -23,7 +23,7 @@ use Twig\TwigFunction;
  * @final
  * @experimental
  */
-class InteractiveImageExtension extends AbstractExtension
+class InteractiveImageTwigExtension extends AbstractExtension
 {
     private $stimulus;
 

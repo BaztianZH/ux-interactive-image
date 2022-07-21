@@ -25,7 +25,7 @@ use BaztianZh\UX\InteractiveImage\Twig\InteractiveImageExtension;
 /**
  * @internal
  */
-class InteractiveImageJsExtension extends Extension
+class InteractiveImageExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
