@@ -12,20 +12,16 @@
 import { Controller } from '@hotwired/stimulus';
 import $ from 'jquery';
 import 'interactiveimagejs/dist/interactive-image.min';
-window.$ = window.jQuery = $;
 
 export default class extends Controller {
+    readonly viewValue: any;
+
     static values = {
         view: Object,
     }
 
     connect() {
-        this.element.style.backgroundImage = "url("+ this.viewValue.imageUrl + ")";
-        this.element.style.width = "1920px";
-        this.element.style.height = "640px";
-        this.element.style.backgroundRepeat = "no-repeat";
-        this.element.style.backgroundSize = "cover";
-        this.element.style.maxWidth = this.element.parentElement.width;
-        $(this.element).interactiveImage(this.viewValue.items, this.viewValue.options);
+        this.element.setAttribute('style','background-image: url("'+this.viewValue.imageUrl+'");');
+        (<any>$(this.element)).interactiveImage(this.viewValue.items, this.viewValue.options);
     }
 }

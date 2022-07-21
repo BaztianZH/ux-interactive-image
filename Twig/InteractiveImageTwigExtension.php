@@ -12,8 +12,6 @@
 namespace BaztianZh\UX\InteractiveImage\Twig;
 
 use BaztianZh\UX\InteractiveImage\Model\InteractiveImage;
-use Symfony\UX\Chartjs\Model\Chart;
-use Symfony\WebpackEncoreBundle\Dto\StimulusControllersDto;
 use Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
@@ -41,7 +39,7 @@ class InteractiveImageTwigExtension extends AbstractExtension
 
     public function renderInteractiveImage(Environment $env, InteractiveImage $image, array $attributes = []): string
     {
-        $controllers['@baztianzh/interactive-image/image'] = ['view' => $image->createView()];
+        $controllers['@baztianzh/ux-interactive-image/interactive-image'] = ['view' => $image->createView()];
 
         return trim('<div class="col-lg-12 col-md-12 col-sm-12"'.$this->stimulus->renderStimulusController($env, $controllers)).'></div>';
     }

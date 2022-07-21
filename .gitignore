@@ -1,4 +1,6 @@
 /vendor/
 composer.lock
 Resources/assets/node_modules
+Resources/assets/yarn.lock
+Resources/assets/package-lock.json
 .idea/
