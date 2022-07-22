@@ -4,7 +4,6 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class TextItem extends Item implements \JsonSerializable
 {
-    use StickyTrait;
     use JsonSerializerTrait;
 
     private string $title;

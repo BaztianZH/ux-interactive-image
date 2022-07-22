@@ -4,7 +4,6 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class ProviderItem extends Item implements \JsonSerializable
 {
-    use StickyTrait;
     use JsonSerializerTrait;
 
     private ProviderName $provider;

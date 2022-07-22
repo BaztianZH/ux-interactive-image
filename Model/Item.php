@@ -12,6 +12,7 @@ abstract class Item
 
     protected string $type;
     protected Position $position;
+    protected bool $sticky = false;
     protected string $customClassName = '';
 
     public function __construct(string $type, int $left, int $top)
@@ -43,6 +44,24 @@ abstract class Item
     public function setPosition(Position $position): Item
     {
         $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSticky(): bool
+    {
+        return $this->sticky;
+    }
+
+    /**
+     * @param bool $sticky
+     * @return self
+     */
+    public function setSticky(bool $sticky): self
+    {
+        $this->sticky = $sticky;
         return $this;
     }
 
