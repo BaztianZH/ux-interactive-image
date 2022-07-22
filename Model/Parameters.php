@@ -2,8 +2,10 @@
 
 namespace BaztianZh\UX\InteractiveImage\Model;
 
-class Parameters
+class Parameters implements \JsonSerializable
 {
+    use JsonSerializerTrait;
+
     private ?string $soundId;
     private ?string $videoId;
 

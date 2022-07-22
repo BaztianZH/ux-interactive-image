@@ -4,6 +4,8 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class Position implements \JsonSerializable
 {
+    use JsonSerializerTrait;
+
     private int $left;
     private int $top;
 
@@ -27,13 +29,5 @@ class Position implements \JsonSerializable
     public function getTop(): int
     {
         return $this->top;
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'left' => $this->left,
-            'top' => $this->top
-        ];
     }
 }

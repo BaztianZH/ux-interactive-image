@@ -2,10 +2,11 @@
 
 namespace BaztianZh\UX\InteractiveImage\Model;
 
-class VideoItem extends MediaItem
+class VideoItem extends MediaItem implements \JsonSerializable
 {
     use CaptionTrait;
     use StickyTrait;
+    use JsonSerializerTrait;
 
     private ?string $poster;
 

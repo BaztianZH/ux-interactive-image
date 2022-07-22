@@ -5,6 +5,7 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 class TextItem extends Item implements \JsonSerializable
 {
     use StickyTrait;
+    use JsonSerializerTrait;
 
     private string $title;
     private string $description;
@@ -68,24 +69,5 @@ class TextItem extends Item implements \JsonSerializable
     {
         $this->link = $link;
         return $this;
-    }
-
-    public function jsonSerialize()
-    {
-        $data = [
-            'type' => $this->type,
-            'position' => $this->position,
-            'title' => $this->title,
-            'description' => $this->description,
-            'picturePath' => $this->picturePath,
-            'sticky' => $this->sticky,
-            'customClassName' => $this->customClassName
-        ];
-
-        if ($this->link instanceof Link && null !== $this->link->getUrl()) {
-            $data['link'] = $this->link;
-        }
-
-        return $data;
     }
 }

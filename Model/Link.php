@@ -4,6 +4,8 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class Link implements \JsonSerializable
 {
+    use JsonSerializerTrait;
+
     private string $url;
     private ?string $label;
 
@@ -27,13 +29,5 @@ class Link implements \JsonSerializable
     public function getLabel(): ?string
     {
         return $this->label;
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'url' => $this->url,
-            'label' => $this->label
-        ];
     }
 }

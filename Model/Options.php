@@ -4,6 +4,8 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class Options implements \JsonSerializable
 {
+    use JsonSerializerTrait;
+
     private bool $allowHtml = false;
     private bool $debug = false;
     private bool $shareBox = true;
@@ -98,15 +100,5 @@ class Options implements \JsonSerializable
     {
         $this->triggerEvent = $triggerEvent;
         return $this;
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'allowHtml' => $this->allowHtml,
-            'debug' => $this->debug,
-            'shareBox' => $this->shareBox,
-            'triggerEvent' => $this->triggerEvent
-        ];
     }
 }

@@ -4,6 +4,8 @@ namespace BaztianZh\UX\InteractiveImage\Model;
 
 class SocialMedia implements \JsonSerializable
 {
+    use JsonSerializerTrait;
+
     private string $url;
     private string $text;
     /** @var array<int, string>  */
@@ -80,15 +82,5 @@ class SocialMedia implements \JsonSerializable
     {
         $this->twitterUsername = $twitterUsername;
         return $this;
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'url' => $this->url,
-            'text' => $this->text,
-            'hashtags' => $this->hashtags,
-            'twitterUsername' => $this->twitterUsername
-        ];
     }
 }
