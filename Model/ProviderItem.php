@@ -6,22 +6,22 @@ class ProviderItem extends Item implements \JsonSerializable
 {
     use JsonSerializerTrait;
 
-    private ProviderName $provider;
+    private ProviderName $providerName;
     private Parameters $parameters;
 
     public function __construct(int $left, int $top, ProviderName $provider, Parameters $parameters)
     {
         parent::__construct(Item::TYPE_PROVIDER, $left, $top);
-        $this->provider = $provider;
+        $this->providerName = $provider;
         $this->parameters = $parameters;
     }
 
     /**
      * @return ProviderName
      */
-    public function getProvider(): ProviderName
+    public function getProviderName(): ProviderName
     {
-        return $this->provider;
+        return $this->providerName;
     }
 
     /**
