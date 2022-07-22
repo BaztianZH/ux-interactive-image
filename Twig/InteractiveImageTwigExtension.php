@@ -41,6 +41,8 @@ class InteractiveImageTwigExtension extends AbstractExtension
     {
         $controllers['@baztianzh/ux-interactive-image/interactive-image'] = ['view' => $image->createView()];
 
-        return trim('<div class="col-lg-12 col-md-12 col-sm-12"'.$this->stimulus->renderStimulusController($env, $controllers)).'></div>';
+        $class = $attributes['class'] ?? '';
+
+        return trim('<div class="'. $class .'"'. $this->stimulus->renderStimulusController($env, $controllers)). '></div>';
     }
 }

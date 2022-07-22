@@ -46,6 +46,16 @@ class HomeController extends AbstractController
 }
 ```
 
+### Render
+```sh
+  <div class="row">
+      {{ render_interactive_image(interactiveImage) }}
+  </div>
+  
+  # You can customize by adding class
+  {{ render_interactive_image(interactiveImage, {'class': 'my-class'}) }}
+```
+
 ### Options
 
 ```sh
